@@ -12,6 +12,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Pretendard";
   margin: 0;
   padding: 0;
   outline: none;
@@ -50,16 +51,23 @@ strong {
 }
 
 @font-face {
-  font-family: "Pretendard Medium";
+  font-family: "Pretendard";
   src: url("./images/PRETENDARD-MEDIUM.OTF");
-  font-style: normal;
+  font-weight: 500; /* Medium weight */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Pretendard Regular";
+  font-family: "Pretendard";
   src: url("./images/PRETENDARD-REGULAR.OTF");
+  font-weight: 400; /* Regular weight */
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./images/PRETENDARD-BOLD.OTF");
+  font-weight: 700; /* Bold weight */
   font-style: normal;
 }
 
@@ -102,14 +110,14 @@ strong {
 .profile_title a {
   font-size: 18px;
   color: #242424;
-  font-family: "Pretendard Medium";
+  font-weight: 500;
   text-shadow: 2px 2px 4px rgba(235, 235, 235, 0.2);
   text-decoration: none;
 }
 
 .profile_desc {
   font-size: 13px;
-  font-family: "Pretendard Regular";
+  font-weight: 400;
   color: #434343;
   padding-top: 5px;
   text-align: center;
@@ -138,7 +146,7 @@ strong {
 
 .menu ul li {
   font-size: 13px;
-  font-family: "Pretendard Regular";
+  font-weight: 400;
   color: #242424;
 }
 
@@ -152,15 +160,41 @@ strong {
 .link_item,
 .link_sub_item {
   color: #222;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration-line: none;
 }
 
 .category_list > li {
+  display: flex;
+  align-items: center;
   width: 230px;
   height: 40px;
-  margin: 10px;
+  margin: 5px 10px 5px 10px;
   border-radius: 5px;
+
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.category_list > li:hover {
+  background-color: rgba(191, 117, 229, 0.2);
+}
+
+.category_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  margin: 0 10px 0 10px;
+}
+
+.link_tit {
+  display: block;
+  margin: 30px 10px 20px 20px;
 }
 
 .link_item {
@@ -168,13 +202,4 @@ strong {
   height: 100%;
   display: flex;
   align-items: center;
-  border-radius: 5px;
-
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in;
-}
-
-.link_item:hover {
-  background-color: rgba(191, 117, 229, 0.2);
 }
