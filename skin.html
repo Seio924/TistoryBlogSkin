@@ -8,25 +8,49 @@
   </head>
   <body>
     <s_t3>
-      <main id="main">
-        <div id="background">
-          <div class="left_sidebar">
-            <!--왼쪽-->
-            <div class="profile">
-              <div class="profile_img">
-                <img src="[##_image_##]" alt="프로필이미지" />
-              </div>
-              <div class="profile_title">
-                <!--[##_title_##]-->
-                <a href="[##_blog_link_##]"> Dev_Seio </a>
-                <p class="profile_desc">시오</p>
-              </div>
-              <div class="menu">[##_blog_menu_##]</div>
+      <div class="container">
+        <!--왼쪽 사이드 바-->
+        <div class="left_sidebar">
+          <!--프로필-->
+          <div class="profile">
+            <div class="profile_img">
+              <img src="[##_image_##]" alt="프로필이미지" />
             </div>
-            <div class="category">[##_category_list_##]</div>
+            <div class="profile_title">
+              <a href="[##_blog_link_##]"> Dev_Seio </a>
+              <p class="profile_desc">시오</p>
+            </div>
+            <!-- 메뉴-->
+            <div class="menu">[##_blog_menu_##]</div>
           </div>
+          <!-- <div class="counter">
+        <div class="total">
+          <div>전체 방문자</div>
+          <div class="total_count">[##_count_total_##]</div>
         </div>
-      </main>
+        <div class="today">Total : [##_count_today_##]</div>
+        <div class="yesterday">Yesterday : [##_count_yesterday_##]</div>
+      </div> -->
+          <!--카테고리-->
+          <div class="category">[##_category_list_##]</div>
+        </div>
+        <main class="main_content">
+          <div class="recent-posts">
+            <h4>게시글</h4>
+            <s_article_rep>
+              <a class="item" href="[##_article_rep_link_##]">
+                <div class="text">
+                  <h4>[##_article_rep_title_##]</h4>
+                  <p>[##_article_rep_simple_date_##]</p>
+                </div>
+                <s_article_rep_thumbnail>
+                  <img src="[##_article_rep_thumbnail_url_##]" />
+                </s_article_rep_thumbnail>
+              </a>
+            </s_article_rep>
+          </div>
+        </main>
+      </div>
     </s_t3>
 
     <!-- JavaScript 파일 연결 -->
