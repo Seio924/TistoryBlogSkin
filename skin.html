@@ -35,18 +35,43 @@
           <div class="category">[##_category_list_##]</div>
         </div>
         <main class="main_content">
-          <div class="recent-posts">
-            <h4>게시글</h4>
+          <div class="posts">
             <s_article_rep>
-              <a class="item" href="[##_article_rep_link_##]">
-                <div class="text">
-                  <h4>[##_article_rep_title_##]</h4>
-                  <p>[##_article_rep_simple_date_##]</p>
+              <s_index_article_rep>
+                <div class="post_card">
+                  <a class="item" href="[##_article_rep_link_##]">
+                    <div class="post_thumbnail">
+                      <s_article_rep_thumbnail>
+                        <img src="[##_article_rep_thumbnail_url_##]" />
+                      </s_article_rep_thumbnail>
+                    </div>
+                    <div class="post_text">
+                      <h4>[##_article_rep_title_##]</h4>
+                      <p>[##_article_rep_simple_date_##]</p>
+                    </div>
+                  </a>
                 </div>
-                <s_article_rep_thumbnail>
-                  <img src="[##_article_rep_thumbnail_url_##]" />
-                </s_article_rep_thumbnail>
-              </a>
+              </s_index_article_rep>
+              <s_permalink_article_rep>
+                <div class="post_details">
+                  <div class="post_details_thumbnail">
+                    <s_article_rep_thumbnail>
+                      <img src="[##_article_rep_thumbnail_url_##]" />
+                    </s_article_rep_thumbnail>
+                  </div>
+                  <div class="article_header">
+                    <h4>[##_article_rep_category_##]</h4>
+                    <h4>[##_article_rep_title_##]</h4>
+                    <div class="article_information">
+                      <p>[##_article_rep_author_##]</p>
+                      <p>[##_article_rep_date_##]</p>
+                    </div>
+                  </div>
+                  <article id="postArticle">
+                    <div class="article_rep">[##_article_rep_desc_##]</div>
+                  </article>
+                </div>
+              </s_permalink_article_rep>
             </s_article_rep>
           </div>
         </main>
