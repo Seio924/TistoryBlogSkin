@@ -1,0 +1,6 @@
+.paid
+.backup
+.idea
+node_modules
+dist
+tidory.config.js

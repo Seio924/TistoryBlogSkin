@@ -1,0 +1,39 @@
+aside#bottom(
+  x-data='bottom'
+  class='flex justify-end px-4 w-full box-border fixed text-sm z-20 bottom-3 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
+  .wrap(class='flex gap-x-2.5')
+    button.theme.btn(@click='toggleTheme')
+      span.txt 테마
+      i.ico(class='fa-solid fa-moon')
+    a.top.btn(href='#hELLO')
+      span.txt 상단으로
+      i.ico(class='fa-solid fa-chevron-up')
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('bottom', () => ({
+    /**
+     * Toggle Theme
+     */
+    toggleTheme () {
+      darkMode.toggle()
+
+      this.$data.dark = ! this.$data.dark
+    }
+  })))
+
+style
+  :postcss
+    #bottom {
+      .btn {
+        @apply flex justify-center items-center w-10 h-10 p-0 rounded-full outline-0 bg-h-200 text-h-500 shadow-none hover:bg-h-300;
+        @apply dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600;
+
+        .txt {
+          @apply text-hidden;
+        }
+
+        .ico {
+          @apply text-base;
+        }
+      }
+    }

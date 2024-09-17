@@ -1,0 +1,17 @@
+s_article_protected
+  s_permalink_article_rep
+    section#protected(x-init='$store.header.title = "[##_article_rep_title_##]"')
+      .wrap(class='permalink-container flex flex-col items-center gap-y-4')
+        p.tit(class='text-center leading-7 text-h-800 dark:text-h-200')
+          | 보호되어 있는 글입니다.
+          br
+          | 내용을 보시려면 비밀번호를 입력하세요.
+        input.input(
+          type='password'
+          autocomplete='off'
+          maxlength='16'
+          id='[##_article_password_##]'
+          name='[##_article_password_##]'
+          onkeydown='if (event.keyCode == 13)[##_article_dissolve_##]'
+          placeholder='비밀번호'
+          class='rounded-md inline-block h-10 border-0 text-sm px-3 w-48 outline-none bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200')

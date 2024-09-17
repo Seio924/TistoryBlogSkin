@@ -1,0 +1,184 @@
+aside#top(
+  x-data='top'
+  @scroll.window='toggle'
+  :class='open ? "backdrop-blur bg-h-100/50 dark:bg-h-800/80" : "bg-transparent"'
+  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-20 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
+  .img
+    img.thumb(
+      @click='sidebar = ! sidebar'
+      class='lazyload rounded-full w-9 h-9 cursor-pointer object-cover <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>'
+      data-src='[##_image_##]'
+      data-sizes='auto'
+      alt='[##_blogger_##]'
+      width='36'
+      height='36')
+  .tit(
+    x-show='open'
+    x-transition:enter='transition ease-linear duration-100'
+    x-transition:enter-start='opacity-0'
+    x-transition:enter-end='opacity-100'
+    x-transition:leave='transition ease-linear duration-100'
+    x-transition:leave-start='opacity-100'
+    x-transition:leave-end='opacity-0'
+    class='max-w-[calc(80vw-152px)] h-5')
+    .txt(class='m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200') [##_page_title_##]
+  #menu-toolbar(
+    x-ref='toolbar'
+    class='menu_toolbar')
+    template(x-if='canSubscribe')
+      button.subscribe(
+        :data-blog-id='T.config.BLOG.id'
+        :data-url='TistoryBlog.tistoryUrl'
+        class='btn_subscription')
+        span.txt(class='text-hidden') 구독하기
+        i.ico(class='fa-solid fa-star')
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('top', () => ({
+    /**
+     * @property {boolean} open
+     */
+    open: true,
+
+    /**
+     * Init
+     */
+    init () {
+      if (/^(.*\.tistory\.com)$/.test(location.hostname)) {
+        this.setTistoryMenuToolbar()
+      }
+
+      this.toggle()
+    },
+
+    /**
+     * can subscribe?
+     */
+    canSubscribe () {
+      return T.config.ROLE !== "owner" && /^(.*\.tistory\.com)$/.test(location.hostname)
+    },
+
+    /**
+     * Set TISTORY menu toolbar
+     */
+    setTistoryMenuToolbar () {
+      const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
+
+      tistoryMenuToolbar && this.$refs.toolbar.append(tistoryMenuToolbar)
+    },
+
+    /**
+     * Toggle
+     */
+    toggle () {
+      this.$targets.forEach(el => {
+        if (document.body.contains(el)) {
+          this.open = el.getBoundingClientRect().bottom < 0
+        }
+      })
+    },
+
+    /**
+     * targets
+     *
+     * @returns {Array<HTMLElement>}
+     */
+    get $targets () {
+      return [
+        this.$refs.header,
+        this.$refs.globalHeader
+      ]
+    }
+  })))
+
+style
+  :postcss
+    .menu_toolbar {
+      @apply hidden;
+    }
+
+style
+  :postcss
+    #top {
+      .menu_toolbar {
+        @apply static flex gap-x-2.5;
+
+        #menubar_wrapper {
+          @apply max-lg:hidden;
+        }
+
+        .subscribe,
+        .btn_menu_type2 {
+          @apply flex justify-center items-center w-9 h-9 p-0 rounded-full outline-0 bg-h-200 text-h-500 shadow-none hover:bg-h-300;
+          @apply dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600;
+        }
+
+        .subscribe {
+          .ico {
+            @apply font-awesome;
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    #menubar_wrapper {
+      @apply relative;
+
+      .btn_menu_type2 {
+        .ico_tistory_sign {
+          @apply opacity-70 dark:opacity-100 dark:invert;
+        }
+      }
+
+      .header_layer {
+        @apply absolute top-12 right-0 left-auto bottom-auto;
+        @apply shadow-none bg-h-200 dark:bg-h-700;
+
+        &::after {
+          @apply hidden;
+        }
+
+        a {
+          @apply no-underline;
+        }
+
+        .info_profile {
+          @apply border-b-h-300 dark:border-b-h-600;
+
+          .txt_id {
+            @apply text-h-500 dark:text-h-200;
+          }
+
+          .txt_email,
+          .link_setting_type2 {
+            @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+          }
+        }
+
+        .list_toolbar {
+          li {
+            .link_list {
+              @apply text-h-500 dark:text-h-200;
+            }
+
+            &:last-child {
+              .link_list {
+                @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+              }
+            }
+          }
+        }
+
+        .wrap_list {
+          .tit_list_type {
+            @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+          }
+        }
+
+        .wrap_toolbar {
+          @apply border-t-h-300 dark:border-t-h-600;
+        }
+      }
+    }

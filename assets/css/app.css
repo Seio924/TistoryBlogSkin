@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a,
+  button {
+    @apply pointer-events-auto;
+  }
+}
+
+@layer components {
+  .index-container {
+    @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+  }
+
+  .permalink-container {
+    @apply w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto;
+  }
+
+  .cover-cols-1 {
+    @apply grid grid-cols-1;
+  }
+
+  .cover-cols-2 {
+    @apply cover-cols-1 sm:grid-cols-2;
+  }
+
+  .cover-cols-3 {
+    @apply cover-cols-2 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .cover-button {
+    @apply flex;
+  }
+
+  .cover-fullscreen {
+    @apply w-full h-screen;
+  }
+
+  /* https://fontawesome.com/ */
+  .font-awesome {
+    @apply font-['Font_Awesome_6_Free'] leading-none not-italic inline-block;
+  }
+
+  .fa-chevron-right {
+    @apply font-awesome font-bold content-['\f105'];
+  }
+
+  .fa-circle-arrow-right {
+    @apply font-awesome font-bold content-['\f0a9'];
+  }
+
+  .fa-circle-arrow-down {
+    @apply font-awesome font-bold content-['\f0ab'];
+  }
+
+  .fa-heart {
+    @apply font-awesome font-bold content-['\f004'];
+  }
+
+  .fa-share-nodes {
+    @apply font-awesome font-bold content-['\f1e0'];
+  }
+
+  .fa-chart-pie {
+    @apply font-awesome font-bold content-['\f200'];
+  }
+
+  .fa-wrench {
+    @apply font-awesome font-bold content-['\f0ad'];
+  }
+
+  .fa-ellipsis {
+    @apply font-awesome font-bold content-['\f141'];
+  }
+
+  .fa-tag {
+    @apply font-awesome font-bold content-['\f02b'];
+  }
+
+  .fa-star {
+    @apply font-awesome content-['\f005'];
+  }
+
+  .fa-paper-plane {
+    @apply font-awesome font-bold content-['\f1d8'];
+  }
+
+  .fa-lock {
+    @apply font-awesome font-bold content-['\f023'];
+  }
+
+  .fa-lock-open {
+    @apply font-awesome font-bold content-['\f3c1'];
+  }
+
+  .fa-mug-saucer {
+    @apply font-awesome font-bold content-['\f0f4'];
+  }
+
+  .fa-triangle-exclamation {
+    @apply font-awesome font-bold content-['\f071'];
+  }
+
+  .fa-xmark {
+    @apply font-awesome font-bold content-['\f00d'];
+  }
+
+  .fa-ellipsis-vertical {
+    @apply font-awesome font-bold content-['\f142'];
+  }
+
+  .fa-thumbtack {
+    @apply font-awesome font-bold content-['\f08d'];
+  }
+}
+
+@layer utilities {
+  .text-hidden {
+    @apply absolute w-px h-px -m-px overflow-hidden !important;
+  }
+
+  .text-overflow-hidden {
+    @apply overflow-hidden whitespace-nowrap text-ellipsis;
+  }
+
+  /* https://github.com/aFarkas/lazysizes#css-api */
+  .lazyload,
+  .lazyloading {
+    @apply animate-pulse bg-h-300 dark:bg-h-700;
+  }
+
+  .lazyload:not([src]) {
+    @apply invisible;
+  }
+
+  .lazyloaded {
+    @apply animate-none bg-h-100;
+  }
+}
